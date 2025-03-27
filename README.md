@@ -59,7 +59,7 @@ ARQUIVO="$HOME/minhas_anotacoes.txt"
 
 1. **Clone o Repositório**:
    ```bash
-   git clone https://github.com/Gazaxian/terminallang.git
+   git clone https://github.com/Gazaxian/Terminallang.git
    ```
 
 2. **Dê Permissão de Execução ao Script**:
