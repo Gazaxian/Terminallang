@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Arquivo onde todas as frases serão armazenadas
-ARQUIVO="$HOME/Documentos/terminallang/anotacoes.txt"
+ARQUIVO="$HOME/anotacoes.txt"
 
 # Criar diretório se não existir
 mkdir -p "$(dirname "$ARQUIVO")"
