@@ -17,8 +17,8 @@ Após iniciar o script, você verá um menu com as seguintes opções:
 - `1) ✏️ Adicionar frases`: Para adicionar novas frases.
 - `2) 📖 Ver todas as frases`: Para visualizar todas as frases salvas com paginação.
 - `3) 🔍 Pesquisar frases`: Para buscar frases com base em uma palavra-chave.
-- `5) 🧹 Limpar terminal`: Para limpar a tela e manter o ambiente de trabalho limpo.
-- `6) ❌ Sair`: Para sair do script.
+- `4) 🧹 Limpar terminal`: Para limpar a tela e manter o ambiente de trabalho limpo.
+- `5) ❌ Sair`: Para sair do script.
 
 Escolha uma opção digitando o número correspondente.
 
