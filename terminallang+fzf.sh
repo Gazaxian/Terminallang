@@ -3,7 +3,7 @@
 # Função para escolher o arquivo de anotações usando fzf
 escolher_arquivo() {
     # Diretório onde os arquivos de anotações estão armazenados
-    diretorio="$HOME/Documentos/terminallang"
+    diretorio="$HOME/terminallang"
 
     # Usando fzf para selecionar um arquivo
     ARQUIVO=$(find "$diretorio" -type f -name "*.txt" | fzf)
