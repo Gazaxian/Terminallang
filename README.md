@@ -2,98 +2,186 @@
 
 **Terminallang** é uma ferramenta prática e eficaz para o aprendizado de idiomas diretamente no terminal. Com este script, você pode registrar, revisar e organizar frases em diferentes idiomas, ajudando a melhorar seu vocabulário e fluência. Ideal para quem prefere utilizar o terminal para manter suas anotações e revisões de maneira simples e rápida.
 
-## Funcionalidades
+Existem duas versões do script para diferentes necessidades:
 
-- **Adicionar frases**: Adicione frases com pronúncia e tradução, evitando duplicatas.
-- **Revisar frases**: Exiba as frases salvas com paginação, facilitando a navegação e revisão.
-- **Pesquisar frases**: Localize frases rapidamente por palavras-chave.
-- **Limpar o terminal**: Mantenha o terminal organizado com uma opção para limpar a tela.
+* **Versão 1:** Arquivo fixo de anotações configurado no script.
+* **Versão 2:** Seleção interativa do arquivo de anotações usando `fzf`.
+
+---
+
+## Funcionalidades Comuns
+
+* **Adicionar frases:** Adicione frases com pronúncia e tradução, evitando duplicatas.
+* **Revisar frases:** Exiba as frases salvas com paginação, facilitando a navegação e revisão.
+* **Pesquisar frases:** Localize frases rapidamente por palavras-chave.
+* **Alterar limite de frases por página:** Ajuste quantas frases aparecem por página na visualização e pesquisa.
+* **Sair:** Encerre o programa de forma segura.
+
+---
+
+## Diferenças entre as versões
+
+| Funcionalidade        | Versão 1 (Arquivo fixo)                                  | Versão 2 (Seleção com fzf)                             |
+| --------------------- | -------------------------------------------------------- | ------------------------------------------------------ |
+| Seleção do arquivo    | Não, arquivo fixo definido no script (`~/anotacoes.txt`) | Sim, você escolhe o arquivo `.txt` com interface `fzf` |
+| Simplicidade          | Mais simples e direta                                    | Mais flexível e poderosa                               |
+| Requisitos adicionais | Não precisa de `fzf`                                     | Precisa do `fzf` instalado                             |
+
+---
 
 ## Como Usar
 
-### 1. Menu Principal
+### Menu Principal
+
 Após iniciar o script, você verá um menu com as seguintes opções:
 
-- `1) ✏️ Adicionar frases`: Para adicionar novas frases.
-- `2) 📖 Ver todas as frases`: Para visualizar todas as frases salvas com paginação.
-- `3) 🔍 Pesquisar frases`: Para buscar frases com base em uma palavra-chave.
-- `4) 🧹 Limpar terminal`: Para limpar a tela e manter o ambiente de trabalho limpo.
-- `5) ❌ Sair`: Para sair do script.
+* `1) ✏️ Adicionar frases`: Para adicionar novas frases.
+* `2) 📖 Ver todas as frases`: Para visualizar todas as frases salvas com paginação.
+* `3) 🔍 Pesquisar frases`: Para buscar frases com base em uma palavra-chave.
+* `4) 📊 Alterar limite de frases por página`: Ajuste quantas frases aparecem por página.
+* `5) ❌ Sair`: Para sair do script.
 
-Escolha uma opção digitando o número correspondente.
+Digite o número correspondente para escolher.
 
-### 2. Adicionar Frases
-Para adicionar uma frase, digite a frase em inglês, seguida pela pronúncia entre parênteses e a tradução entre colchetes. Exemplo:
+---
+
+### 1. Adicionar Frases
+
+Digite uma frase com a pronúncia entre parênteses e a tradução entre colchetes, por exemplo:
 
 ```
 I am learning English. (ai ãm lêrning inglix) [Eu estou aprendendo inglês.]
 ```
 
-O script verifica automaticamente se a frase já foi adicionada anteriormente, evitando duplicação de entradas. Se a frase for nova, ela será salva no arquivo.
+O script verifica se a frase já existe para evitar duplicatas e salva apenas frases novas.
 
-### 3. Ver Todas as Frases
-Você pode visualizar todas as frases salvas, com a opção de navegar pelas páginas. O número de frases por página pode ser alterado a qualquer momento dentro do menu de páginas, facilitando a navegação, especialmente se você tiver muitas frases.
+---
 
-### 4. Pesquisar Frases
-Digite um termo de busca para localizar rapidamente as frases que contêm esse termo. Por exemplo, se você quer encontrar todas as frases que mencionam "learning", basta digitar:
+### 2. Ver Todas as Frases
 
-```
-learning
-```
+Visualize todas as frases paginadas. Navegue entre páginas com as opções:
 
-O script irá exibir as frases relevantes com o termo encontrado.
+* `N` Próxima página
+* `P` Página anterior
+* `L` Alterar limite de frases por página
+* `G` Ir para uma página específica
+* `Q` Sair da visualização
 
-### 5. Limpar o Terminal
-Use esta opção para limpar a tela do terminal e manter o ambiente de trabalho organizado.
+---
+
+### 3. Pesquisar Frases
+
+Digite um termo para buscar. As frases contendo esse termo serão exibidas paginadas, com as mesmas opções de navegação da exibição geral.
+
+---
+
+### 4. Alterar Limite de Frases por Página
+
+Digite um número positivo para definir quantas frases quer visualizar por página nas funções de revisão e pesquisa.
+
+---
+
+### 5. Sair
+
+Encerra o script.
+
+---
 
 ## Personalizações
 
-### Alterando o Local de Armazenamento
-As frases são armazenadas no arquivo `~/anotacoes.txt`. Caso deseje mudar o local ou nome do arquivo, edite a variável `ARQUIVO` no início do script:
+### Alterando o Local de Armazenamento (Versão 1)
+
+As frases são armazenadas no arquivo `~/anotacoes.txt` por padrão. Para alterar o arquivo, modifique a variável `ARQUIVO` no início do script:
 
 ```bash
 ARQUIVO="$HOME/minhas_anotacoes.txt"
 ```
 
+---
+
 ## Como Rodar o Script
 
-1. **Clone o Repositório**:
+### Para a Versão 1 (arquivo fixo)
+
+1. Clone o repositório:
+
    ```bash
    git clone https://github.com/Gazaxian/Terminallang.git
+   cd Terminallang
    ```
 
-2. **Dê Permissão de Execução ao Script**:
+2. Dê permissão de execução:
+
    ```bash
    chmod +x terminallang.sh
    ```
 
-3. **Execute o Script**:
+3. Execute:
+
    ```bash
    ./terminallang.sh
    ```
 
+---
+
+### Para a Versão 2 (com fzf)
+
+1. Certifique-se que o `fzf` está instalado no seu sistema.
+
+2. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/Gazaxian/Terminallang.git
+   cd Terminallang
+   ```
+
+3. Dê permissão de execução:
+
+   ```bash
+   chmod +x terminallang+fzf.sh
+   ```
+
+4. Execute:
+
+   ```bash
+   ./terminallang+fzf.sh
+   ```
+
+---
+
 ## Exemplo de Uso
 
-Aqui está um exemplo de como você pode adicionar uma frase:
+### Adicionando uma frase
 
-1. Execute o script.
-2. No menu principal, selecione `1) ✏️ Adicionar frases`.
-3. Digite uma frase com a pronúncia e tradução. Exemplo:
-   ```
-   I love programming. (ai lóv prógrãming) [Eu amo programar.]
-   ```
-4. O script irá confirmar que a frase foi salva, e você pode continuar adicionando ou sair pressionando `Enter` sem digitar nada.
+* Execute o script.
+* No menu principal, escolha `1) ✏️ Adicionar frases`.
+* Digite:
 
-### Pesquisar por Termo:
-1. No menu principal, selecione `3) 🔍 Pesquisar frases`.
-2. Digite o termo que deseja buscar (por exemplo, "programming").
-3. O script exibirá todas as frases que contêm o termo "programming".
+```
+I love programming. (ai lóv prógrãming) [Eu amo programar.]
+```
+
+* O script confirmará que a frase foi salva.
+
+### Pesquisando por um termo
+
+* Escolha `3) 🔍 Pesquisar frases`.
+* Digite a palavra-chave, por exemplo: `programming`.
+* Veja as frases que a contém.
+
+### Navegando entre páginas
+
+* Use as teclas indicadas para avançar, retroceder ou ir para uma página específica.
+
+---
 
 ## Requisitos
 
-- **Linux, macOS ou Windows** com suporte a Bash.
-- **Bash**: O script utiliza comandos padrões do Bash como `grep`, `sed`, `mkdir` e `echo`.
-- **Editor de texto** (opcional, para editar o arquivo de anotações).
+* Sistema operacional Linux, macOS ou Windows com suporte a Bash.
+* Bash e comandos comuns (`grep`, `sed`, `mkdir`, `echo`).
+* Para a Versão 2, o utilitário `fzf` instalado (ex: `sudo apt install fzf`).
+
+---
 
 ## Licença
 
