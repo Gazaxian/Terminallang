@@ -92,7 +92,7 @@ exibir_frases() {
             echo -e "📖 ${BRANCO}Frases salvas:${RESET}\n"
             for ((i=inicio; i<fim; i++)); do
                 linha="${frases[i]}"
-                frase=$(echo "$linha" | sed -E 's/\(.*\)//' | sed -E 's/\[.*\]//' | xargs)
+                frase=$(echo "$linha" | sed -E 's/\(.*\)//' | sed -E 's/\[.*\]//' | awk '{$1=$1;print}')
                 pronuncia=$(echo "$linha" | grep -oP '\(.*?\)')
                 traducao=$(echo "$linha" | grep -oP '\[.*?\]')
 
@@ -150,7 +150,7 @@ pesquisar_frases() {
             echo -e "🔎 ${BRANCO}Resultados encontrados: $total${RESET}\n"
             for ((i=inicio; i<fim; i++)); do
                 linha="${resultados[i]}"
-                frase=$(echo "$linha" | sed -E 's/\(.*\)//' | sed -E 's/\[.*\]//' | xargs)
+                frase=$(echo "$linha" | sed -E 's/\(.*\)//' | sed -E 's/\[.*\]//' | awk '{$1=$1;print}')
                 pronuncia=$(echo "$linha" | grep -oP '\(.*?\)')
                 traducao=$(echo "$linha" | grep -oP '\[.*?\]')
 
